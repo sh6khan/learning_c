@@ -1,4 +1,4 @@
-#include <pthread>
+#include <pthread.h>
 #include <stdio.h>
 
 struct char_print_param{
@@ -27,7 +27,7 @@ int main(){
     struct char_print_param thread2_arg;
 
     thread1_arg.character = 'x';
-    thread2_arg.count = 3;
+    thread1_arg.count = 3;
     pthred_create(&thread1_id, NULL, &char_print, &thread1_arg);
 
     thread2_arg.character = 'o';
