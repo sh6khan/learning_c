@@ -4,14 +4,14 @@
 struct char_print_param{
     char character;
     int count;
-}
+};
 
 void* char_print(void* parameters){
     struct char_print_param* p = (struct char_print_param*) parameters;
 
     int i;
-    for (i = 0; i < p->count; ++i){
-        printf("%s\n", p->character);
+    for (i = 0; i < p->count; i++){
+        printf("%c\n", p->character);
     }
 
     return NULL;
@@ -28,7 +28,7 @@ int main(){
 
     thread1_arg.character = 'x';
     thread1_arg.count = 3;
-    pthred_create(&thread1_id, NULL, &char_print, &thread1_arg);
+    pthread_create(&thread1_id, NULL, &char_print, &thread1_arg); 
 
     thread2_arg.character = 'o';
     thread2_arg.count = 2;
